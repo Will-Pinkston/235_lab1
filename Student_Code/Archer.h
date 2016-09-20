@@ -28,6 +28,7 @@ public:
     int getDamage();
     bool useAbility();
     int getSpeed();
+    void takeDamage(int damage);
 };
 
 #endif /* Archer_h */

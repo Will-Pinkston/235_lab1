@@ -56,6 +56,7 @@ void Fighter::takeDamage(int damage) {
     }
     m_CurrentHP -= damage;
 }
+
 void Fighter::regenerate() {
     int heal = m_Strength / 6;
     if (heal == 0) {

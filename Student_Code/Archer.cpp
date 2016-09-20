@@ -37,6 +37,15 @@ bool Archer::useAbility() {
 int Archer::getSpeed() {
     return m_CurrentSpeed;
 }
+
+void Archer::takeDamage(int damage) {
+    int evadeRedux = m_CurrentSpeed / 4;
+    damage -= evadeRedux;
+    if (damage <= 0) {
+        damage = 1;
+    }
+    m_CurrentHP -= damage;
+}
 //----------------------------------------------------------------------------------
 //----------------------------------------------------------------------------------
 
