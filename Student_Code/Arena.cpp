@@ -1,6 +1,6 @@
 //
 //  arena.cpp
-//  Test that git magicks!
+//  
 //
 //  Created by William Pinkston on 9/13/16.
 //
@@ -22,8 +22,10 @@ bool checkName (string name, vector<FighterInterface*> m_Roster) {
     if (name == "") {
         return false;
     } else {
-        for (int i = 0; i < m_Roster.size(); i++) {
-            if (m_Roster[i]->getName() == name) {
+        int size = (int)m_Roster.size();
+        for (int i = 0; i < size; i++) {
+            string find_name = m_Roster[i]->getName();
+            if (find_name == name) {
                 return false;
             }
         }
@@ -60,58 +62,64 @@ bool Arena::addFighter(string info) {
     ss << info;
 //    member variables for the fighter
     string name = "";
-    string type = "x";
-    int maxHP = -1;
-    int strength = -1;
-    int speed = -1;
-    int magic = -1;
 //    start testing each part of the input
 //    filter name
     ss >> name;
     if (checkName(name, m_Roster)) {
+        string type = "x";
 //        filter type
         ss >> type;
         int typetest = checkType(type);
         if (typetest > -1) {
+            int maxHP = -1;
 //            filter maxHP
             ss >> maxHP;
             if (checkValue(maxHP)) {
+                int strength = -1;
 //                filter strength
                 ss >> strength;
                 if (checkValue(strength)) {
+                    int speed = -1;
 //                    filter speed
                     ss >> speed;
                     if (checkValue(speed)) {
+                        int magic = -1;
 //                        filter magic
                         ss >> magic;
                         if (checkValue(magic)) {
-//                            input verified
-//                            create new fighter
-                            switch(typetest) {
-                                case 1: { //robot
-                                    FighterInterface* addRobot = new Robot(name, maxHP, strength,
-                                                                           speed, magic);
-                                    m_Roster.push_back(addRobot);
-                                    return true;
+                            string overflow_check = "fail";
+                            ss >> overflow_check;
+                            if (overflow_check == "fail") {
+//                                input verified
+//                                create new fighter
+                                switch(typetest) {
+                                    case 1: { //robot
+                                        FighterInterface* addRobot = new Robot(name, maxHP, strength,
+                                                  speed, magic);
+                                        m_Roster.push_back(addRobot);
+                                        return true;
+                                    }
+                                        break;
+                                    case 2: { //archer
+                                        FighterInterface* addArcher = new Archer(name, maxHP, strength,
+                                                                                 speed, magic);
+                                        m_Roster.push_back(addArcher);
+                                        return true;
+                                    }
+                                        break;
+                                    case 3: { //cleric
+                                        FighterInterface* addCleric = new Cleric(name, maxHP, strength,
+                                                                                 speed, magic);
+                                        m_Roster.push_back(addCleric);
+                                        return true;
+                                    }
+                                        break;
+                                    default:
+                                        return false;
+                                        break;
                                 }
-                                    break;
-                                case 2: { //archer
-                                    FighterInterface* addArcher = new Archer(name, maxHP, strength,
-                                                                             speed, magic);
-                                    m_Roster.push_back(addArcher);
-                                    return true;
-                                }
-                                    break;
-                                case 3: { //cleric
-                                    FighterInterface* addCleric = new Cleric(name, maxHP, strength,
-                                                                             speed, magic);
-                                    m_Roster.push_back(addCleric);
-                                    return true;
-                                }
-                                    break;
-                                default:
-                                    return false;
-                                    break;
+                            } else {
+                                cout << "Info string overflow" << endl;
                             }
                         } else {
                             cout << "Improper magic format." << endl;
@@ -137,6 +145,7 @@ bool Arena::addFighter(string info) {
         cout << "Improper name format." << endl;
         return false;
     }
+    return false;
 }
 //----------------------------------------------------------------------------------
 //----------------------------------------------------------------------------------
