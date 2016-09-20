@@ -57,7 +57,6 @@ bool checkValue (int value) {
 //----------------------------------------------------------------------------------
 //Add a new fighter into the arena
 bool Arena::addFighter(string info) {
-    cout << "Arena::addFighter" << endl;
 //    parse out the info string into the given format
     stringstream ss;
     ss << info;
@@ -148,9 +147,7 @@ bool Arena::addFighter(string info) {
 //----------------------------------------------------------------------------------
 //remove a fighter from the arena
 bool Arena::removeFighter(string name) {
-    cout << "Arena::removeFighter" << endl;
     if (checkName(name, m_Roster)) {
-        cout << "remove fail" << endl;
         return false;
     } else {
         bool found = false;
@@ -179,7 +176,6 @@ FighterInterface* Arena::getFighter(string name) {
 //    cout << "Arena::getFighter" << endl;
     cout << name;
     if (name == "") {
-        cout << "name is empty string!" << endl;
         return nullptr;
     }
     if(checkName(name, m_Roster)) {
@@ -191,7 +187,6 @@ FighterInterface* Arena::getFighter(string name) {
         int i = 0;
         while(!found) {
             if (m_Roster[i]->getName() == name) {
-                cout << "Found ::" << m_Roster[i]->getName() << "at index " << i << endl;
                 found = true;
             } else if (i < m_Roster.size()) {
                 i++;
@@ -207,7 +202,6 @@ FighterInterface* Arena::getFighter(string name) {
 //----------------------------------------------------------------------------------
 //Returns the number of fighters in the arena
 int Arena::getSize() {
-    cout << "Arena::getSize" << endl;
     return (int)m_Roster.size();
 }
 //----------------------------------------------------------------------------------
