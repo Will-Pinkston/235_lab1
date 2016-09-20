@@ -27,6 +27,7 @@ public:
     void reset();
     int getDamage();
     bool useAbility();
+    int getSpeed();
 };
 
 #endif /* Archer_h */
