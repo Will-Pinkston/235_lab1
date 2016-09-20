@@ -12,7 +12,8 @@
 Archer::Archer(string name, int MaximumHP, int Strength,
                int Speed, int Magic) : Fighter (name, MaximumHP, Strength, Speed, Magic) {
     m_Speed = Speed;
-    m_Damage = Speed;
+    m_CurrentSpeed = Speed;
+    m_Damage = m_CurrentSpeed;
 }
 
 void Archer::reset() {
@@ -28,6 +29,7 @@ int Archer::getDamage() {
 
 bool Archer::useAbility() {
     m_CurrentSpeed++;
+    m_Damage = m_CurrentSpeed;
     return true;
 }
 //----------------------------------------------------------------------------------
