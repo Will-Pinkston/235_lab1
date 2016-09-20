@@ -45,10 +45,12 @@ int Fighter::getMagic() {
 //----------------------------------------------------------------------------------
 //Battle commands
 void Fighter::reset() {
+    cout << "Fighter::reset" << endl;
     m_CurrentHP = m_MaximumHP;
 }
 
 void Fighter::takeDamage(int damage) {
+    cout << "Fighter::takeDamage" << endl;
     int evadeRedux = m_Speed / 4;
     damage -= evadeRedux;
     if (damage <= 0) {
