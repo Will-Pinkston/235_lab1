@@ -19,6 +19,7 @@ Archer::Archer(string name, int MaximumHP, int Strength,
 void Archer::reset() {
     Fighter::reset();
     m_CurrentSpeed = m_Speed;
+    m_Damage = m_CurrentSpeed;
 }
 
 //----------------------------------------------------------------------------------

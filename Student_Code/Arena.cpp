@@ -174,13 +174,11 @@ bool Arena::removeFighter(string name) {
 //Get a pointer to a fighter in the arena
 FighterInterface* Arena::getFighter(string name) {
 //    cout << "Arena::getFighter" << endl;
-    cout << name;
     if (name == "") {
         return nullptr;
     }
     if(checkName(name, m_Roster)) {
         FighterInterface* nilIt = NULL;
-        cout << "NULL" << endl;
         return nilIt;
     } else {
         bool found = false;

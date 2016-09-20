@@ -45,7 +45,6 @@ int Fighter::getMagic() {
 //----------------------------------------------------------------------------------
 //Battle commands
 void Fighter::reset() {
-    cout << m_name << "Fighter::reset" << endl;
     m_CurrentHP = m_MaximumHP;
 }
 
@@ -58,7 +57,6 @@ void Fighter::takeDamage(int damage) {
     m_CurrentHP -= damage;
 }
 void Fighter::regenerate() {
-    cout << m_name << "Fighter::regenerate" << endl;
     int heal = m_Strength / 6;
     if (heal == 0) {
         heal = 1;
