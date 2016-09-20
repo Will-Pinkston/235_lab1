@@ -1,6 +1,6 @@
 //
 //  arena.cpp
-//  
+//  Test that git magicks!
 //
 //  Created by William Pinkston on 9/13/16.
 //
