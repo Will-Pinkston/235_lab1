@@ -119,33 +119,26 @@ bool Arena::addFighter(string info) {
                                         break;
                                 }
                             } else {
-                                cout << "Info string overflow" << endl;
+                                return false;
                             }
                         } else {
-                            cout << "Improper magic format." << endl;
                             return false;
                         }
                     } else {
-                        cout << "Improper speed format." << endl;
                         return false;
                     }
                 } else {
-                    cout << "Improper strength format." << endl;
                     return false;
                 }
             } else {
-                cout << "Improper maximum HP format." << endl;
                 return false;
             }
         } else {
-            cout << "Improper type format." << endl;
             return false;
         }
     } else {
-        cout << "Improper name format." << endl;
         return false;
     }
-    return false;
 }
 //----------------------------------------------------------------------------------
 //----------------------------------------------------------------------------------
