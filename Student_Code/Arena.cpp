@@ -170,7 +170,7 @@ bool Arena::removeFighter(string name) {
         int final_index = ((int)m_Roster.size()) - 1;
         m_Roster[i] = m_Roster[final_index];
         m_Roster.pop_back();
-        return false;
+        return true;
     }
 }
 //----------------------------------------------------------------------------------
