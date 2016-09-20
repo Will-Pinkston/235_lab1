@@ -163,6 +163,7 @@ bool Arena::removeFighter(string name) {
             }
         }
         int final_index = ((int)m_Roster.size()) - 1;
+        delete m_Roster[i];
         m_Roster[i] = m_Roster[final_index];
         m_Roster.pop_back();
         return true;
@@ -176,14 +177,17 @@ bool Arena::removeFighter(string name) {
 //Get a pointer to a fighter in the arena
 FighterInterface* Arena::getFighter(string name) {
     cout << "Arena::getFighter" << endl;
+    cout << name;
     if(checkName(name, m_Roster)) {
         FighterInterface* nilIt = NULL;
+        cout << "NULL" << endl;
         return nilIt;
     } else {
         bool found = false;
         int i = 0;
         while(!found) {
             if (m_Roster[i]->getName() == name) {
+                cout << "Found ::" << m_Roster[i]->getName() << "at index " << i << endl;
                 found = true;
             } else if (i < m_Roster.size()) {
                 i++;
